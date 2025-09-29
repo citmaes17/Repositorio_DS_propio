@@ -38,11 +38,11 @@ def colocar_barco(tablero:numpy.ndarray) -> numpy.ndarray:
             intentos = 0
             while intentos < max_intentos:
                 fila = random.randint(0, tamano_tablero - 1)
-                col0 = random.randint(0, tamano_tablero - tamano_barco)
+                col_0 = random.randint(0, tamano_tablero - tamano_barco)
 
-                if all(tablero[fila, col0 + j] == "_" for i, j in barco):
+                if all(tablero[fila, col_0 + j] == "_" for i, j in barco):
                     for i, j in barco:
-                        tablero[fila, col0 + j] = "O"
+                        tablero[fila, col_0 + j] = "O"
                     break  # colocado este barco; pasa al siguiente
                 intentos += 1
             else:
@@ -52,11 +52,11 @@ def colocar_barco(tablero:numpy.ndarray) -> numpy.ndarray:
             intentos = 0
             while intentos < max_intentos:
                 col = random.randint(0, tamano_tablero - 1)
-                fila0 = random.randint(0, tamano_tablero - tamano_barco)
+                fila_0 = random.randint(0, tamano_tablero - tamano_barco)
 
-                if all(tablero[fila0 + i, col] == "_" for i, _ in barco):
-                    for i, _ in barco:
-                        tablero[fila0 + i, col] = "O"
+                if all(tablero[fila_0 + i, col] == "_" for i, j in barco):
+                    for i, j in barco:
+                        tablero[fila_0 + i, col] = "O"
                     break
                 intentos += 1
             else:
